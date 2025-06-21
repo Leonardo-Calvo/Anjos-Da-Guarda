@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canais de Apoio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo-container">
+        <a href="{{ url_for('pagina_principal') }}">
+          <img src="{{url_for('static', filename='imagens/anjos_da_guarda.png')}}" alt="Logo">
+        </a>
+      </div>
+      <a href="{{ url_for('pagina_principal') }}" class="nav-title">Anjos da Guarda</a>
+
+      <ul class="nav-links">
+  <li class="dropdown">
+    <a href="#">Desaparecidos</a>
+    <ul class="dropdown-menu">
+      <li><a href="{{ url_for('pagina_desaparecidos') }}">Crianças desaparecidas</a></li>
+      <li><a href="{{ url_for('pagina_registrar') }}">Registrar caso</a></li>
+    </ul>
+  </li>
+  <li><a href="{{ url_for('pagina_orientaçoes') }}">Orientações</a></li>
+  <li><a href="{{ url_for('pagina_apoio') }}">Canais de apoio</a></li>
+  <li><a href="{{ url_for('pagina_admin') }}">Admin</a></li>
+</ul>
+</nav>
+  </header>
+    <main>
+    <br>
+    <br>
+    <h1>Canais de apoio:</h1>
+<p>
+  Se você está passando por um momento difícil devido ao desaparecimento 
+  de uma criança saiba que você não está sozinho(a). Existem organizações e 
+  instituições prontas para oferecer apoio emocional, jurídico e investigativo.
+  Abaixo estão alguns canais que podem te ajudar:
+</p>
+<br>
+<p>
+  <strong>- Disque 100</strong> - Direitos Humanos: um canal nacional e gratuito para denúncias 
+  de violação dos direitos humanos, disponível 24 horas por dia.<br><br>
+
+  <strong>- Disque 190</strong> - Polícia Militar: em situações de emergência entre em contato 
+  com a Polícia Militar, atendimento rápido e direto.<br><br>
+
+  <strong>- Disque 181</strong> - Disque Denúncia: canal de denúncias anônimas, qualquer pessoa 
+  que tenha informações sobre o paradeiro de uma criança desaparecida pode colaborar.<br><br>
+
+  <strong>- Delegacias da Criança e do Adolescente</strong>: cada estado possui delegacias 
+  especializadas em proteger crianças e adolescentes. Procure a unidade mais 
+  próxima para registrar o desaparecimento ou buscar orientações.<br><br>
+
+  <strong>- Apoio psicológico e social</strong>: Diversas ONGs e centros de assistência social 
+  oferecem acompanhamento psicológico gratuito para familiares.
+</p>
+
+    
+  </main>
+
+</body>
+</html>

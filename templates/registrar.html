@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registrar Criança Desaparecida</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+   <style>
+    /* Modal */
+    #modalTermos {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 999;
+    }
+
+    #caixaTermos {
+      background: white;
+      color: black; /* Texto preto */
+      font-size: 0.95em; /* Fonte um pouco menor */
+      width: 90%;
+      max-width: 700px;
+      margin: 10% auto;
+      padding: 25px;
+      border-radius: 10px;
+      overflow-y: auto;
+      max-height: 80%;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    #botaoFechar {
+      float: right;
+      background-color: #b00020;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #aceitarBtn {
+      background-color: #32df18;
+      color: white;
+      padding: 17px 22px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    h2 {
+      margin-top: 20px;
+    }
+
+    p {
+      text-align: justify;
+    }
+
+
+     #enviarBtn {
+      padding: 15px 30px;     /* aumenta o tamanho interno do botão */
+      font-size: 1.2em;       /* aumenta o tamanho da fonte */
+      font-weight: 600;       /* deixa o texto mais forte/negrito */
+      border-radius: 8px;     /* cantos arredondados */
+      background-color: #b00020; /* vermelho */
+      color: white;           /* texto branco */
+      border: none;           /* sem borda */
+      cursor: pointer;        /* cursor em forma de mãozinha */
+      transition: background-color 0.3s ease;
+    }
+
+    #enviarBtn:hover {
+      background-color: #b00020; /* vermelho */
+    }
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    textarea {
+      width: 60%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1em;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
+      transition: border 0.3s ease;
+    }
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+textarea:focus {
+  border: 1px solid #b00020;
+  outline: none;
+}
+.botao-estilizado {
+  display: inline-block;
+  background-color: #b00020;
+  color: white;
+  padding: 7px 14px;
+  font-size: 1em;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.botao-estilizado:hover {
+  background-color: #a0001c;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo-container">
+        <a href="{{ url_for('pagina_principal') }}">
+          <img src="{{ url_for('static', filename='imagens/anjos_da_guarda.png') }}" alt="Logo">
+        </a>
+      </div>
+      <a href="{{ url_for('pagina_principal') }}" class="nav-title">Anjos da Guarda</a>
+      <ul class="nav-links">
+  <li class="dropdown">
+    <a href="#">Desaparecidos</a>
+    <ul class="dropdown-menu">
+      <li><a href="{{ url_for('pagina_desaparecidos') }}">Crianças desaparecidas</a></li>
+      <li><a href="{{ url_for('pagina_registrar') }}">Registrar caso</a></li>
+    </ul>
+  </li>
+  <li><a href="{{ url_for('pagina_orientaçoes') }}">Orientações</a></li>
+  <li><a href="{{ url_for('pagina_apoio') }}">Canais de apoio</a></li>
+  <li><a href="{{ url_for('pagina_admin') }}">Admin</a></li>
+</ul>
+</nav>
+  </header>
+
+  <main>
+    <br>
+    <h1>Registrar Criança Desaparecida</h1>
+    <form method="POST" enctype="multipart/form-data" action="{{ url_for('pagina_registrar') }}">
+      <label for="nome_crianca">Nome da Criança:</label><br>
+      <span style="color:red; font-size: 0.7em;">* Campo obrigatório</span><br>
+      <input type="text" id="nome_crianca" name="nome_crianca" required><br><br>
+
+      <label for="idade">Idade da Criança:</label><br>
+      <input type="number" id="idade" name="idade" min="0"><br><br>
+
+      <label for="local_desaparecimento">Local do Desaparecimento:</label><br>
+      <span style="color:red; font-size: 0.7em;">* Campo obrigatório</span><br>
+      <input type="text" id="local_desaparecimento" name="local_desaparecimento" required><br><br>
+
+      <label for="data_desaparecimento">Data do desaparecimento:</label><br>
+      <span style="color:red; font-size: 0.7em;">* Campo obrigatório</span><br>
+      <input type="date" id="data_desaparecimento" name="data_desaparecimento" required><br><br>
+
+      <label for="descricao">Descrição:</label><br>
+      <textarea id="descricao" name="descricao" style="width: 60%; height: 100px;"></textarea><br><br>
+
+      <label for="nome_responsavel">Nome do Responsável:</label><br>
+      <span style="color:red; font-size: 0.7em;">* Campo obrigatório</span><br>
+      <input type="text" id="nome_responsavel" name="nome_responsavel" required><br><br>
+
+      <label for="contato">Contato (telefone):</label><br>
+      <span style="color:red; font-size: 0.7em;">* Campo obrigatório</span><br>
+      <input type="text" id="contato" name="contato" placeholder="Ex: (31) 91234-5678" required><br><br>
+
+      <label for="foto">Foto:</label><br>
+      <label for="foto" class="botao-estilizado">Escolher foto</label>
+      <input type="file" id="foto" name="foto" accept="image/*" style="display:none;"><br><br>
+
+
+      <!-- Checkbox e link dos Termos -->
+      <p>
+        <input type="checkbox" id="aceitou" disabled>
+        <label for="aceitou">
+          Li e aceito os <a href="#" onclick="abrirModal()" style="color: black; text-decoration: underline;">Termos de Uso e Política de Privacidade</a>
+        </label>
+      </p>
+      <br>
+      <input type="submit" value="Registrar" id="enviarBtn" disabled>
+    </form>
+  </main>
+
+  <!-- Modal -->
+  <div id="modalTermos">
+    <div id="caixaTermos">
+      <button id="botaoFechar" onclick="fecharModal()">X</button>
+      <h1 style="color: #000000; font-weight: 700;">Termos de Uso e Política de Privacidade</h1>
+      <p><strong>Última atualização:</strong> Junho de 2025</p>
+
+      <h2>1. Objetivo do Site</h2>
+      <p>O site <strong>Anjos da Guarda</strong> tem como missão auxiliar na localização de crianças desaparecidas, através da divulgação de informações enviadas por familiares ou responsáveis legais.</p>
+
+      <h2>2. Dados Coletados</h2>
+      <p>Coletamos dados como: nome da criança, nome do responsável, idade, local do desaparecimento, telefone para contato e, opcionalmente, uma foto. Essas informações são fornecidas voluntariamente pelo usuário.</p>
+
+      <h2>3. Uso das Informações</h2>
+      <p>As informações coletadas serão utilizadas exclusivamente para divulgação no site <strong>Anjos da Guarda</strong>, com o objetivo de facilitar a identificação e localização da criança desaparecida. Não utilizamos os dados para fins comerciais.</p>
+
+      <h2>4. Consentimento</h2>
+      <p>Ao marcar a opção de aceite no envio do formulário, o usuário declara que leu e concorda com os termos, permitindo o uso das informações conforme as disposições da LGPD (Lei nº 13.709/2018).</p>
+
+      <h2>5. Proteção de Dados</h2>
+      <p>Comprometemo-nos a proteger os dados fornecidos, garantindo que somente pessoas autorizadas tenham acesso às informações. Adotamos medidas técnicas e organizacionais para evitar acessos não autorizados.</p>
+
+      <h2>6. Direitos do Usuário</h2>
+      <p>Você pode solicitar a atualização, correção ou exclusão dos dados a qualquer momento, conforme previsto na LGPD. Para isso, entre em contato pelo e-mail: <strong>anjosdaguarda462@gmail.com</strong></p>
+
+      <h2>7. Crianças e o ECA</h2>
+      <p>O <strong>Anjos da Guarda</strong> respeita integralmente o Estatuto da Criança e do Adolescente (Lei nº 8.069/1990), garantindo a proteção da imagem, identidade e integridade das crianças envolvidas.</p>
+
+      <h2>8. Compartilhamento</h2>
+      <p>As informações poderão ser compartilhadas com órgãos oficiais (como Polícia, Conselho Tutelar ou Ministério Público), exclusivamente para fins de investigação e apoio à família.</p>
+
+      <h2>9. Alterações nos Termos</h2>
+      <p>Estes termos podem ser alterados a qualquer momento para se adequar às normas legais. A versão mais recente estará sempre disponível nesta página com a data de atualização.</p>
+
+      <h2>10. Contato</h2>
+      <p>Para dúvidas, sugestões ou solicitações relacionadas aos dados, entre em contato com: <strong>anjosdaguarda462@gmail.com</strong></p>
+
+      <div style="text-align: right;">
+        <button id="aceitarBtn" onclick="aceitarTermos()">Aceitar e Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    function abrirModal() {
+      document.getElementById('modalTermos').style.display = 'block';
+    }
+
+    function fecharModal() {
+      document.getElementById('modalTermos').style.display = 'none';
+    }
+
+    function aceitarTermos() {
+      document.getElementById('aceitou').checked = true;
+      document.getElementById('enviarBtn').disabled = false;
+      fecharModal();
+    }
+  </script>
+</body>
+</html>

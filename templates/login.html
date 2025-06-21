@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    form {
+      margin: 50px auto;
+      padding: 20px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 300px;
+    }
+    label {
+      font-size: 16px;
+    }
+    input[type="text"]{
+      padding: 10px;
+      border: 1px solid #b00020;
+      border-radius: 5px;
+      background-color: #ffffff;
+      color: #000000;
+    }
+    input[type="password"] {
+      padding: 10px;
+      border: 1px solid #b00020;
+      border-radius: 5px;
+      background-color: #ffffff;
+      color: #000000;
+    }
+    button {
+      background-color: #b00020;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #c1334d;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo-container">
+        <a href="{{ url_for('pagina_principal') }}">
+          <img src="{{url_for('static', filename='imagens/anjos_da_guarda.png')}}" alt="Logo">
+        </a>
+      </div>
+      <a href="{{ url_for('pagina_principal') }}" class="nav-title">Anjos da Guarda</a>
+      <ul class="nav-links">
+  <li class="dropdown">
+    <a href="#">Desaparecidos</a>
+    <ul class="dropdown-menu">
+      <li><a href="{{ url_for('pagina_desaparecidos') }}">Crianças desaparecidas</a></li>
+      <li><a href="{{ url_for('pagina_registrar') }}">Registrar caso</a></li>
+    </ul>
+  </li>
+  <li><a href="{{ url_for('pagina_orientaçoes') }}">Orientações</a></li>
+  <li><a href="{{ url_for('pagina_apoio') }}">Canais de apoio</a></li>
+  <li><a href="{{ url_for('pagina_admin') }}">Admin</a></li>
+</ul>
+</nav>
+  </header>
+  <main>
+     
+  </main>
+
+</body>
+<form method="post">
+  <br>
+  <form method="post" style="margin-left: 20px;">
+    <label>Usuário:</label>
+    <input type="text" name="usuario" required>
+
+    <label>Senha:</label>
+    <input type="password" name="senha" required>
+
+    <button type="submit">Entrar</button>
+    </form>
+</html>

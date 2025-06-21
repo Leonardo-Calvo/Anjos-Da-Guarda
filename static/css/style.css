@@ -1,0 +1,149 @@
+      /*  PADRÃO DO SITE */
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    /*padrão do corpo*/
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff5f5;
+      color: #333333;
+    }
+
+    header {
+      background-color:#b00020;
+      padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      
+    }
+    nav {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 0 20px;
+    }
+    /* Esquerda: imagem da logo */
+    .logo-img {
+      height: 200px;
+    }
+    .logo-container {
+      justify-self: start;
+    }
+    .logo-container img {
+      height: 80px;
+    }
+    .logo-container span {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #b71c1c;
+      padding: 0.5rem 0;
+      border-radius: 4px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      z-index: 1001;
+    }
+    /* Estilo dos itens do submenu */
+    .dropdown-menu li a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #fff;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .dropdown-menu {
+      list-style: none;
+    }
+    /* Mostra o menu ao passar o mouse */
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    /* Centro: título centralizado na barra */
+    .nav-title {
+      justify-self: center;
+      font-family: 'Georgia', serif;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 100px;
+      margin: 0 auto;
+    }
+    /* Direita: menu */
+    .nav-links {
+      justify-self: end;
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    ul.nav-links li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.3s;
+      flex: 1;
+      justify-content: flex-end;
+    }
+    ul.nav-links li a:hover {
+      color: #fff;
+      background-color: #d43b3b; /* vermelho mais suave e visível */
+      border-radius: 4px;
+    }
+    main {
+      padding: 100px 20px 20px; /* espaço para a navbar fixa */
+      max-width: 900px;
+      margin: auto;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #333333;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .hero-section {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px;
+    }
+    .hero-section img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+    .hero-section h1 {
+      font-size: 1.7rem;
+      margin-bottom: 20px;
+      color: #333333; /* vermelho suave */
+    }
+    .botao-destaque {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #b00020; /* tom de vermelho harmônico */
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    .botao-destaque:hover {
+      background-color: #c1443c;
+    }
+    /*  PADRÃO DO SITE */

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Painel Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+  
+  <style>
+    /* Estilos específicos do painel admin */
+
+    .admin-main {
+      padding: 40px 20px;
+      font-family: 'Poppins', sans-serif;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .admin-info {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .admin-info h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .admin-info p {
+      font-size: 1.1rem;
+      color: #000000;
+    }
+
+    .admin-info ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      text-align: left;
+      margin-top: 10px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #000000;
+    }
+
+    .hub-cards {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .admin-card {
+      width: 260px;
+      padding: 20px;
+      border: 3px solid #b00020;
+      border-radius: 12px;
+      background-color: #fff;
+      text-align: center;
+      transition: transform 0.3s;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .admin-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .admin-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .admin-card p {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .hub-logout {
+      display: flex;
+      justify-content: center;
+    }
+
+    .logout-card {
+      width: 200px;
+      padding: 12px;
+      border: 2px solid #000000;
+      border-radius: 10px;
+      text-align: center;
+      background-color: #f9f9f9;
+      transition: transform 0.3s;
+    }
+
+    .logout-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .logout-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .logout-card p {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #000000;
+    }
+  </style>
+
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo-container">
+        <a href="{{ url_for('pagina_principal') }}">
+          <img src="{{ url_for('static', filename='imagens/anjos_da_guarda.png') }}" alt="Logo" />
+        </a>
+      </div>
+      <a href="{{ url_for('pagina_principal') }}" class="nav-title">Anjos da Guarda</a>
+
+      <ul class="nav-links">
+        <li class="dropdown">
+          <a href="#">Desaparecidos</a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ url_for('pagina_desaparecidos') }}">Crianças desaparecidas</a></li>
+            <li><a href="{{ url_for('pagina_registrar') }}">Registrar caso</a></li>
+          </ul>
+        </li>
+        <li><a href="{{ url_for('pagina_orientaçoes') }}">Orientações</a></li>
+        <li><a href="{{ url_for('pagina_apoio') }}">Canais de apoio</a></li>
+        <li><a href="{{ url_for('logout') }}">Sair</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="admin-main">
+    <section class="admin-info">
+      <br>
+      <br>
+      <br>
+      <br>
+      <h2>Painel Administrativo</h2>
+      <ul>
+        <li><strong>Aguardando Aprovação:</strong> Aceitar ou recusar registros de desaparecimento.</li>
+        <li><strong>Crianças Registradas:</strong> Excluir registros já aprovados.</li>
+      </ul>
+      <br>
+       <p style="font-weight: bold;">Selecione uma opção abaixo:</p>
+    </section>
+
+    <section class="hub-cards">
+      <div class="admin-card">
+        <a href="{{ url_for('pagina_admin_aprovacao') }}">
+          <img src="{{ url_for('static', filename='imagens/hub_admin/aprovacao.png') }}" alt="Aguardando Aprovação" />
+        </a>
+      </div>
+
+      <div class="admin-card">
+        <a href="{{ url_for('pagina_admin_registrados') }}">
+          <img src="{{ url_for('static', filename='imagens/hub_admin/registradas.png') }}" alt="Crianças Registradas" />
+        </a>
+      </div>
+    </section>
+
+    <section class="hub-logout">
+      <div class="logout-card">
+        <a href="{{ url_for('logout') }}">
+          <img src="{{ url_for('static', filename='imagens/hub_admin/logout.png') }}" alt="Logout" />
+        </a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

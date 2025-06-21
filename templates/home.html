@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anjos da Guarda</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo-container">
+        <a href="{{ url_for('pagina_principal') }}">
+          <img src="{{url_for('static', filename='imagens/anjos_da_guarda.png')}}" alt="Logo">
+        </a>
+      </div>
+      <a href="{{ url_for('pagina_principal') }}" class="nav-title">Anjos da Guarda</a>
+
+      <ul class="nav-links">
+        <li class="dropdown">
+          <a href="#">Desaparecidos</a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ url_for('pagina_desaparecidos') }}">Crianças desaparecidas</a></li>
+            <li><a href="{{ url_for('pagina_registrar') }}">Registrar caso</a></li>
+          </ul>
+        </li>
+        <li><a href="{{ url_for('pagina_orientaçoes') }}">Orientações</a></li>
+        <li><a href="{{ url_for('pagina_apoio') }}">Canais de apoio</a></li>
+        <li><a href="{{ url_for('pagina_admin') }}">Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <br>
+    <div class="hero-section">
+      <img src="{{ url_for('static', filename='imagens/noticia.jpg')}}" alt="Imagem de destaque">
+      <h1>Toda criança importa. Toda criança merece voltar para casa</h1>
+      <a href="{{ url_for('pagina_desaparecidos') }}" class="botao-destaque">Ver crianças desaparecidas</a>
+      <br><br>
+
+      <h1>Sobre o projeto Anjos da Guarda:</h1>
+      <p>O projeto Anjos da Guarda é uma iniciativa voltada para dar visibilidade e 
+        apoio aos casos de crianças desaparecidas no Brasil. Seu objetivo é reunir 
+        informações confiáveis, facilitar o registro de ocorrências e mobilizar 
+        a sociedade por meio da divulgação responsável e do acesso rápido aos canais de 
+        ajuda. <br>
+        Cada criança desaparecida representa uma história interrompida, uma família 
+        em desespero e uma sociedade que precisa agir com empatia e responsabilidade. 
+        Acreditamos que toda criança importa e merece voltar para casa em segurança 
+        e dignidade. <br>
+        Esse projeto foi criado para ser ponto de apoio e esperança. Aqui, é possível 
+        consultar casos em andamento, registrar novos desaparecidos, receber alertas 
+        e acessar orientações importantes para agir de forma rápida e eficaz.
+      </p>
+
+      <!-- Instagram do projeto -->
+      <div style="margin-top: 20px;">
+        <a href="https://www.instagram.com/anjosdaguardabh/" target="_blank" style="color: #b00020; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+          <img src="{{ url_for('static', filename='imagens/botao_instagram.jpg') }}" alt="Instagram" style="width: 24px; height: 24px;">
+          @anjosdaguardabh
+        </a>
+      </div>
+
+      <br>
+      <h1>Por que agir rápido salva vidas:</h1>
+      <p>O desaparecimento de crianças é uma realidade alarmante no Brasil. Segundo 
+        dados da Associação Brasileira de Busca e Defesa das Crianças Desaparecidas 
+        (ABCD), mais de 40 mil crianças desaparecem todos os anos no país. Infelizmente 
+        muitos desses casos não têm a visibilidade necessária, dificultando o reencontro 
+        e prolongando o sofrimento de familiares. <br>
+        Cada minuto conta quando uma criança desaparece. Casos resolvidos com sucesso 
+        mostram que quando a sociedade é alertada rapidamente, redes de apoio se formam 
+        e as buscas se tornam muito mais eficazes. A luta contra o desaparecimento de 
+        crianças não é apenas das famílias ou das autoridades, mas sim de todos nós.
+      </p>
+    </div>
+  </main>
+
+</body>
+</html>

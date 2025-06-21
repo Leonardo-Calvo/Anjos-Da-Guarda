@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orientações</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo-container">
+        <a href="{{ url_for('pagina_principal') }}">
+          <img src="{{url_for('static', filename='imagens/anjos_da_guarda.png')}}" alt="Logo">
+        </a>
+      </div>
+      <a href="{{ url_for('pagina_principal') }}" class="nav-title">Anjos da Guarda</a>
+
+      <ul class="nav-links">
+  <li class="dropdown">
+    <a href="#">Desaparecidos</a>
+    <ul class="dropdown-menu">
+      <li><a href="{{ url_for('pagina_desaparecidos') }}">Crianças desaparecidas</a></li>
+      <li><a href="{{ url_for('pagina_registrar') }}">Registrar caso</a></li>
+    </ul>
+  </li>
+  <li><a href="{{ url_for('pagina_orientaçoes') }}">Orientações</a></li>
+  <li><a href="{{ url_for('pagina_apoio') }}">Canais de apoio</a></li>
+  <li><a href="{{ url_for('pagina_admin') }}">Admin</a></li>
+</ul>
+</nav>
+  </header>
+
+  <main>
+    <br>
+    <br>
+    <h1>Em caso de desaparecimento:</h1>
+    <p>Se você está enfrentando o desaparecimento de uma criança, siga as 
+      orientações abaixo com urgência: <br>
+      - Entre em contato com a polícia imediatamente: registre um boletim 
+    de ocorrência assim que perceber o desaparecimento <br> 
+    - Acione os orgãos competentes: entre em contado com o Conselho Tutelar
+    Delegacia da Criança e do Adolecente ou outras instituições de apoio na 
+    sua região <br>
+    - Reuna o máximo de informações possíveis: separe uma ou mais fotos recentes
+    da criança, documentos, caracteríticas físicas e informações sobre o local 
+    e horário do desaparecimento <br>
+    - Divulgue nas redes sociais: quanto mais pessoas souberem, maior as chances 
+    de encontrar a crianç rapidamente <br>
+    - Fique disponível para contato: Mantenha seu telefone ligado e evite sair 
+    para locais sem sinal de internet, caso alguém tenha informações importantes
+  </p>
+  <br>
+  <h1>Como cadastrar uma criança desaparecida neste site: </h1>
+  <p>Se você deseja cadastrar uma crinaça desaparecida para ajudar na busca, 
+    siga os passos abaixo: <br>
+    - Coloque o mouse sobre o botão "Desaparecidos", ele está no menu superior <br>
+    - Clique no botão "Registrar Caso" <br>
+    - Preencha o formulário com atenção, as informações solicitadas incluem: <br>
+    * Nome completo da criança <br>
+    * Idade <br>
+    * Data e local do desaparecimento <br>
+    * Descrição <br>
+    * Foto <br>
+    * Nome e contato do responsável <br>
+    - Leia os termos de uso  e diretrizes <br>
+    - Revise os dados e clique em "Registrar"
+  </p>
+  <br>
+<p style="font-size: 0.9em; color: #555;">
+  Para mais informações sobre como os dados são tratados, consulte a 
+  <a href="https://www.gov.br/esporte/pt-br/acesso-a-informacao/lgpd" target="_blank" style="color: #b00020; font-weight: bold;">
+    Lei Geral de Proteção de Dados (LGPD)
+  </a>.
+</p>
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Erro 404</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    main {
+      text-align: center;
+      padding: 60px 20px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .erro-img {
+      max-width: 300px;
+      margin-bottom: 30px;
+    }
+
+    .mensagem-erro {
+      font-size: 1.3em;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .mensagem-erro strong {
+      color: #b00020;
+    }
+
+    .btn-voltar {
+      background-color: #b00020;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-voltar:hover {
+      background-color: #8e0019;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo-container">
+        <a href="{{ url_for('pagina_principal') }}">
+          <img src="{{ url_for('static', filename='imagens/anjos_da_guarda.png') }}" alt="Logo">
+        </a>
+      </div>
+      <a href="{{ url_for('pagina_principal') }}" class="nav-title">Anjos da Guarda</a>
+      <ul class="nav-links">
+        <li class="dropdown">
+          <a href="#">Desaparecidos</a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ url_for('pagina_desaparecidos') }}">Crianças desaparecidas</a></li>
+            <li><a href="{{ url_for('pagina_registrar') }}">Registrar caso</a></li>
+          </ul>
+        </li>
+        <li><a href="{{ url_for('pagina_orientaçoes') }}">Orientações</a></li>
+        <li><a href="{{ url_for('pagina_apoio') }}">Canais de apoio</a></li>
+        <li><a href="{{ url_for('pagina_admin') }}">Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <br><br><br><br>
+    
+    <p class="mensagem-erro"><strong>Ops!</strong> A página que você está tentando acessar não foi encontrada.</p>
+    <p class="mensagem-erro">Pode ter sido removida ou o endereço está incorreto.</p>
+    <a href="{{ url_for('pagina_principal') }}" class="btn-voltar">Voltar para a página principal</a>
+  </main>
+</body>
+</html>

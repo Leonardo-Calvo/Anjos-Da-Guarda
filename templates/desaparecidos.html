@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crianças Desaparecidas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo-container">
+        <a href="{{ url_for('pagina_principal') }}">
+          <img src="{{url_for('static', filename='imagens/anjos_da_guarda.png')}}" alt="Logo">
+        </a>
+      </div>
+      <a href="{{ url_for('pagina_principal') }}" class="nav-title">Anjos da Guarda</a>
+
+      <ul class="nav-links">
+  <li class="dropdown">
+    <a href="#">Desaparecidos</a>
+    <ul class="dropdown-menu">
+      <li><a href="{{ url_for('pagina_desaparecidos') }}">Crianças desaparecidas</a></li>
+      <li><a href="{{ url_for('pagina_registrar') }}">Registrar caso</a></li>
+    </ul>
+  </li>
+  <li><a href="{{ url_for('pagina_orientaçoes') }}">Orientações</a></li>
+  <li><a href="{{ url_for('pagina_apoio') }}">Canais de apoio</a></li>
+  <li><a href="{{ url_for('pagina_admin') }}">Admin</a></li>
+</ul>
+</nav>
+  </header>
+
+  <main>
+    <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <br>
+    <br>
+    <title>Crianças Desaparecidas</title>
+    <div style="text-align: center;">
+    <h1>Crianças Desaparecidas:</h1>
+    </div>
+</head>
+<body>
+<br>
+
+   {% if criancas %}
+    <ul style="list-style: none; padding: 0;">
+        {% for c in criancas %}
+            <li style="margin-bottom: 40px; text-align: center;">
+                <!-- Foto centralizada -->
+                {% if c[9] %}
+                    <img src="{{ url_for('static', filename='imagens/uploads/' + c[9]) }}"
+                         alt="Foto de {{ c[1] }}"
+                         style="width: 200px; border-radius: 10px; margin-bottom: 15px;">
+                {% else %}
+                    <em>Sem foto</em><br><br>
+                {% endif %}
+
+                <!-- Informações da Criança -->
+                <h3 style="margin-bottom: 5px;">🧒 Criança</h3>
+                <strong>Nome:</strong> {{ c[1] }}<br>
+                <strong>Idade:</strong> {{ c[2] if c[2] else 'Não informado' }}<br>
+                <strong>Local do Desaparecimento:</strong> {{ c[3] if c[3] else 'Não informado' }}<br>
+                <strong>Data do Desaparecimento:</strong> {{ c[4] if c[4] else 'Não informado' }}<br>
+                <strong>Descrição:</strong>
+                <div style="margin: 5px auto 0 auto; padding: 0px 0; width: 80%;  text-align: center; line-height: 1.4;">
+                  {{ c[5] if c[5] else 'Não informado' }}
+                </div><br>
+
+
+                <!-- Informações do Responsável -->
+                <h4 style="margin-top: 20px;">👤 Responsável</h4>
+                <strong>Nome:</strong> {{ c[6] if c[6] else 'Não informado' }}<br>
+                <strong>Contato:</strong> {{ c[7] if c[7] else 'Não informado' }}<br>
+                <strong>Data de Registro:</strong> {{ c[8] if c[8] else 'Não informado' }}<br>
+
+                <!-- Linha de separação -->
+                <hr style="margin: 40px auto; border: none; border-top: 4px solid #b00020; width: 100%;">
+
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p style="text-align: center;">Nenhumas criança desaparecida cadastrada.</p>
+{% endif %}
+    <div style="text-align: center;">
+    <a href="{{ url_for('pagina_registrar') }}" class="botao-destaque">Cadastrar nova criança</a>
+    </div>
+</body>
+</html>
+
+    
+  </main>
+
+</body>
+</html>
